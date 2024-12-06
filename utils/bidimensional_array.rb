@@ -3,7 +3,7 @@ require 'delegate'
 class BidimensionalArray < SimpleDelegator
 
   class Element < SimpleDelegator
-    VALID_POSITIONS = [:up, :down, :left, :right, :up_left, :up_right, :down_left, :down_right]
+    VALID_DIRECTIONS = [:up, :down, :left, :right, :up_left, :up_right, :down_left, :down_right]
     attr_reader :value, :position
 
     def initialize(value, position, parent)
@@ -14,7 +14,7 @@ class BidimensionalArray < SimpleDelegator
     end
 
     def adjacent_elements
-      VALID_POSITIONS.map {|direction| adjacent_element_in_direction(direction) }
+      VALID_DIRECTIONS.map {|direction| adjacent_element_in_direction(direction) }
     end
 
     def adjacent_element_in_direction(direction)
@@ -24,7 +24,7 @@ class BidimensionalArray < SimpleDelegator
     end
 
     def adjacent_positions
-      VALID_POSITIONS.map {|direction| adjacent_position_in_direction(direction) }
+      VALID_DIRECTIONS.map {|direction| adjacent_position_in_direction(direction) }
     end
 
     def adjacent_position_in_direction(direction)
