@@ -4,7 +4,8 @@ class BidimensionalArray < SimpleDelegator
 
   class Element < SimpleDelegator
     VALID_DIRECTIONS = [:up, :down, :left, :right, :up_left, :up_right, :down_left, :down_right]
-    attr_reader :value, :position
+    attr_reader :position
+    attr_accessor :value
 
     def initialize(value, position, parent)
       super(value)
